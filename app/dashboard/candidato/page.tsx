@@ -42,9 +42,11 @@ export default function DashboardPage() {
             <Button variant="ghost" size="icon" className="rounded-full">
               <Bell className="h-5 w-5" />
             </Button>
-            <div className="h-9 w-9 rounded-full border-2 border-primary/20 bg-muted overflow-hidden cursor-pointer hover:scale-110 transition-transform">
-              <img src="https://i.pravatar.cc/100?u=1" alt="User" className="h-full w-full object-cover" />
-            </div>
+            <Link href="/dashboard/candidato/perfil">
+              <div className="h-9 w-9 rounded-full border-2 border-primary/20 bg-muted overflow-hidden cursor-pointer hover:scale-110 transition-transform">
+                <img src="https://i.pravatar.cc/100?u=1" alt="User" className="h-full w-full object-cover" />
+              </div>
+            </Link>
           </div>
         </div>
       </nav>
@@ -83,19 +85,40 @@ export default function DashboardPage() {
           <div className="space-y-8">
             <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h1 className="text-3xl font-bold tracking-tight">Olá, Desenvolvedor! 👋</h1>
+                <h1 className="text-3xl font-bold tracking-tight">Olá, João! 👋</h1>
                 <p className="text-muted-foreground">Bem-vindo ao seu painel de controle.</p>
               </div>
               <div className="flex items-center gap-3">
                 <Button variant="outline" size="icon" className="rounded-full">
                   <Bell className="h-5 w-5" />
                 </Button>
-                <Button className="rounded-xl font-bold gap-2">
-                  <Search className="h-4 w-4" />
-                  Buscar novas vagas
-                </Button>
+                <Link href="/vagas">
+                  <Button className="rounded-xl font-bold gap-2">
+                    <Search className="h-4 w-4" />
+                    Buscar novas vagas
+                  </Button>
+                </Link>
               </div>
             </header>
+
+            {/* Profile Completion Banner */}
+            <div className="bg-primary/5 border border-primary/20 rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-colors" />
+              <div className="flex items-center gap-5 relative z-10">
+                <div className="h-16 w-16 rounded-2xl bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20">
+                  <User className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold">Seu perfil está 40% completo</h3>
+                  <p className="text-sm text-muted-foreground">Complete seu perfil para aumentar em 5x suas chances de contratação.</p>
+                </div>
+              </div>
+              <Link href="/dashboard/candidato/perfil" className="relative z-10 w-full md:w-auto">
+                <Button className="w-full md:w-auto rounded-xl font-bold px-8 shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                  Completar Agora
+                </Button>
+              </Link>
+            </div>
 
             <div className="grid gap-6 md:grid-cols-3">
               <div className="bg-background border rounded-2xl p-6 shadow-sm">
