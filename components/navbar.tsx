@@ -28,13 +28,17 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" className="hidden sm:flex gap-2">
-            <User className="h-4 w-4" />
-            Entrar
-          </Button>
-          <Button size="sm" className="gap-2">
-            Cadastrar
-          </Button>
+          <Link href="/login">
+            <Button variant="ghost" size="sm" className="hidden sm:flex gap-2">
+              <User className="h-4 w-4" />
+              Entrar
+            </Button>
+          </Link>
+          <Link href="/cadastrar">
+            <Button size="sm" className="gap-2">
+              Cadastrar
+            </Button>
+          </Link>
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-6 w-6" />
           </Button>

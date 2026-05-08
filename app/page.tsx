@@ -45,6 +45,31 @@ export default function Home() {
       <Navbar />
       
       <main className="flex-1">
+        {/* Trending Tech Ticker (Top Ranking) */}
+        <div className="w-full bg-primary/5 border-b overflow-hidden py-3">
+          <div className="container mx-auto px-4 flex items-center gap-8">
+            <div className="flex items-center gap-2 shrink-0">
+              <div className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-primary">Live Ranking</span>
+            </div>
+            
+            <div className="flex items-center gap-12 overflow-x-auto no-scrollbar py-1">
+              {[
+                { name: "React", score: 98, trend: "up" },
+                { name: "Node.js", score: 92, trend: "up" },
+                { name: "TypeScript", score: 89, trend: "up" },
+              ].map((tech, i) => (
+                <div key={tech.name} className="flex items-center gap-3 shrink-0 group">
+                  <span className="text-xs font-black text-primary italic">0{i + 1}</span>
+                  <span className="text-sm font-bold group-hover:text-primary transition-colors cursor-default">{tech.name}</span>
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-700">
+                    ↑ {tech.score}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-48">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_45%_at_50%_50%,rgba(59,130,246,0.1)_0%,rgba(255,255,255,0)_100%)]" />
